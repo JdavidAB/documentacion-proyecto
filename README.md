@@ -12,7 +12,7 @@ Este proyecto busca integrar un robot UR3 simulado en Unity 3D con el Internet d
 
 ![Texto alternativo](imagenes/1.png)
 
-**1\. Requisitos Iniciales y Descarga del Proyecto Base**
+# **1\. Requisitos Iniciales y Descarga del Proyecto Base**
 
 El primer paso para comenzar con el desarrollo de este trabajo, es descargar el Archivo.zip del proyecto base de Unity 3D que contiene la simulación del robot UR3. Este proyecto está disponible en el siguiente repositorio de GitHub:
 
