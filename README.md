@@ -110,6 +110,7 @@ Ejecución de comandos:
 - Comando **npm init -y**
 
 ![Texto alternativo](imagenes/2.png)
+<img src="imagenes/2.png" alt="Diagrama del sistema" width="500">
 
 - Comando **npm install ws**
 
