@@ -121,7 +121,7 @@ Ejecución de comandos:
 
 Una vez realizado lo anterior, en el directorio servidor-ws que contiene el archivo server.js, debe haberse creado tres archivos como se observa en la imagen:
 
-<img src="imagenes/5.png" alt="Diagrama" width="500">
+<img src="imagenes/5.png" alt="Diagrama" width="200">
 
 Posteriormente, abre nuevamente Visual Studio Code, crea un archivo nuevo y copia siguiente script:
 
@@ -227,7 +227,7 @@ Ahora, se construye las pagina web. Abrir Visual Studio Code y crear un nuevo ar
 
 Lo anterior permite crear 6 slider cada uno correspondiente a cada articulación de las 6 articulaciones de robot UR3, además, se estable el rango de movimiento que va entre (-180 a 180) grados para cada articulación. Como resultado se obtiene lo siguiente:
 
-<img src="imagenes/12.png" alt="Diagrama" width="500">
+<img src="imagenes/12.png" alt="Diagrama" width="200">
 
 **3.2 Conexión con el Servidor Websocket**
 
