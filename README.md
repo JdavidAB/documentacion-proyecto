@@ -844,7 +844,9 @@ En el código de la Pagina Web anexa lo siguiente:
 
 Esto permite visualizar en la interfaz web la trasmisión del video. El link usado es el que **ngrok** dio. Sin embargo, para que acceda directo al video se de acceder a **Receiver Sample** y ese link usarlo en el código anterior.
 
-Esta URL publica en el código html debe ser modificada cada vez que se cierre y abra nuevamente el servidor WebApp y la herramienta ngrok.
+Esta URL publica en el código html debe ser modificada cada vez que se cierre y abra nuevamente el servidor WebApp y la herramienta ngrok. Finalmente, se obtiene un sistema de comunicación IoT como el indicado al inico de este documento.
+
+![Texto alternativo](imagenes/1.png)
 
 # **Referencias.**
 
