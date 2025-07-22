@@ -507,7 +507,7 @@ Crea un archivo nuevo en Arduino IDE, copia el código y guarda ese archivo con 
 
 Abre el Proyecto Base de Unity3D, en la ventana de Assets busca la carpeta **Scripts** dentro de esta crea un nuevo script, para eso presión clic derecho sobre la carpeta **Scritps** y selecciona **Create** y luego **C# Script**. A este nuevo script nómbralo como **TCPServer**.
 
-![Texto alternativo](imagenes/14.png)
+<img src="imagenes/14.png" alt="Diagrama" width="500">
 
 **5.1 Construcción de servidor TCP**
 
