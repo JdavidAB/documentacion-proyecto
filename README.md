@@ -113,15 +113,15 @@ Ejecución de comandos:
 
 - Comando **npm install ws**
 
-![Texto alternativo](imagenes/3.png)
+<img src="imagenes/3.png" alt="Diagrama" width="500">
 
 - Comando **node server.js**
 
-![Texto alternativo](imagenes/4.png)
+<img src="imagenes/4.png" alt="Diagrama" width="500">
 
-Una vez realzado lo anterior, en el directorio servidor-ws que contiene el archivo server.js, debe haberse creado tres archivos como se observa en la imagen:
+Una vez realizado lo anterior, en el directorio servidor-ws que contiene el archivo server.js, debe haberse creado tres archivos como se observa en la imagen:
 
-![Texto alternativo](imagenes/5.png)
+<img src="imagenes/5.png" alt="Diagrama" width="500">
 
 Posteriormente, abre nuevamente Visual Studio Code, crea un archivo nuevo y copia siguiente script:
 
@@ -158,21 +158,21 @@ Cuando ejecutes cada uno de los comandos debes observar los siguientes resultado
 
 - **git init**
 
-![Texto alternativo](imagenes/6.png)
+<img src="imagenes/6.png" alt="Diagrama" width="500">
 
 - **git add .**
 
-![Texto alternativo](imagenes/7.png)
+<img src="imagenes/7.png" alt="Diagrama" width="500">
 
 - **git commit -m "Subida inicial"**
 
-![Texto alternativo](imagenes/8.png)
+<img src="imagenes/8.png" alt="Diagrama" width="500">
 
 - **git branch -M main**
 - **git remote add origin <https://github.com/TU_USUARIO/servidor-ws.git>**
 - **git push -u origin main**
 
-![Texto alternativo](imagenes/9.png)
+<img src="imagenes/9.png" alt="Diagrama" width="500">
 
 Realizado lo anterior, se podrá observar en tu repositorio **servidor-ws** de GitHub la copia del servidor Websocket, y en el directorio de tu PC llamado servidor-ws, se observará una Carpeta de archivos (.git)
 
@@ -199,7 +199,7 @@ Primero inicia sesión en Render <https://render.com/> con la cuenta de GitHub c
 
 Luego se da clic en **Deploy Web Service** y espera el despliegue, Render va a: Clonar tu repositorio, instalar dependencias (ws) y ejecutar node server.js.
 
-![Texto alternativo](imagenes/10.png)
+<img src="imagenes/10.png" alt="Diagrama" width="500">
 
 Finalmente, el servidor WebSocket quedara desplegado públicamente en Render con la URL publica <https://serviidor-ws.onrender.com>, esta se usará para que la página web como la ESP32 puedan acceder a ese servidor como clientes y con ello establecer una comunicación bidireccional entre Página web – servidor Websocket – ESP32; al dar clic en la URL se debe abrir una página en el navegador que muestre el siguiente mensaje **“Upgrade Required”** lo cual quiere decir que el servidor fue desplegado correctamente.
 
@@ -227,7 +227,7 @@ Ahora, se construye las pagina web. Abrir Visual Studio Code y crear un nuevo ar
 
 Lo anterior permite crear 6 slider cada uno correspondiente a cada articulación de las 6 articulaciones de robot UR3, además, se estable el rango de movimiento que va entre (-180 a 180) grados para cada articulación. Como resultado se obtiene lo siguiente:
 
-![Texto alternativo](imagenes/12.png)
+<img src="imagenes/12.png" alt="Diagrama" width="500">
 
 **3.2 Conexión con el Servidor Websocket**
 
