@@ -207,7 +207,7 @@ Finalmente, el servidor WebSocket quedara desplegado públicamente en Render con
 
 En esta sección se explica el paso a paso para la creación de una Interfaz web que se comunica con el servidor Websocket y su posterior despliegue en Render para obtener un acceso público de esta.
 
-![Texto alternativo](imagenes/11.png)
+<img src="imagenes/11.png" alt="Diagrama" width="500">
 
 **3.1 Slider (articulaciones Robot UR3):**
 
@@ -303,7 +303,7 @@ Descarga Arduino IDE desde <https://www.arduino.cc/en/software/>, e instala.
 
 Realizado lo anterior, ya se puede crear código en Arduino IDE, una vez se cree algún código, da clic en Verificar para comprobar errores y clic en Subir para cargarlo al ESP32.
 
-![Texto alternativo](imagenes/13.png)
+<img src="imagenes/13.png" alt="Diagrama" width="500">
 
 **4.1 Comunicación WebSocket (con el Servidor WebSocket)**
 
@@ -624,7 +624,7 @@ jointIndex -= 1; // J1 → índice 0
 
 Finalmente, se Llama al método **SetJointAngle()** que está dentro de la clase publica **UR3JointController** de la siguiente manera, UR3JointController.SetJointAngle(jointIndex, angle); que se usa para actualizar el ángulo de la articulación correspondiente. **Ver código TCPServer en Sección código fuente.**
 
-![Texto alternativo](imagenes/15.png)
+<img src="imagenes/15.png" alt="Diagrama" width="200">
 
 Este archivo **_“TCPServer.cs_”** de unity3D, será el servidor al cual se comunicará el dispositivo ESP33.
 
@@ -634,7 +634,7 @@ El propósito de esta clase, es almacenar y dar acceso a los ángulos de las 6 a
 
 En la ventana de **Assets** busca la carpeta **Scripts** dentro de esta crea un nuevo script, para eso presión clic derecho sobre la carpeta **Scritps** y selecciona **Create** y luego **C# Script**. A este nuevo script nómbralo como **UR3JointController**.
 
-![Texto alternativo](imagenes/16.png)
+<img src="imagenes/16.png" alt="Diagrama" width="200">
 
 Primero se crea un arreglo de 6 valores decimales (float) que representan los ángulos de las 6 articulaciones del robot:
 
@@ -700,7 +700,7 @@ Estas clases, controlan la rotación visual de las 6 articulaciones del brazo ro
 
 En la ventana de **Assets** busca la carpeta **Scripts** dentro de esta busca la carpeta **UR3** e ingresa, en esta encontraras otra carpeta llamada **Link** donde observaras 6 script **ur3_link1, …, ur3_link6**. Cada script está asignado al GameObject que representa cada articulación del brazo UR3 (por ejemplo, link1 en la jerarquía de Unity).
 
-![Texto alternativo](imagenes/17.png)
+<img src="imagenes/17.png" alt="Diagrama" width="200">
 
 Las modificaciones deben realizarse en cada uno de los scripts ur3_link. Para un ejemplo se realizará la modificación para el **script ur3_link1**
 
@@ -751,7 +751,7 @@ Este archivo **_“ur3_link1.cs_”** de unity3D, permite realizar el movimiento
 
 Se busca transmitir en tiempo real hacia la Página Web el movimiento del robot UR3 cuando desde la Pagina Web se muevan los Slider de alguna articulación, para eso de realizo los siguientes pasos.
 
-![Texto alternativo](imagenes/18.png)
+<img src="imagenes/18.png" alt="Diagrama" width="500">
 
 **6.1 Transmisión local de la escena de Unity3D**
 
@@ -763,16 +763,16 @@ Luego, abre el proyecto base de Unity3D y agregar Render Streaming desde Git URL
 
 Da clic en "Add". Esto va a instalar el paquete oficial **com.unity.renderstreaming** directamente desde GitHub, el cual contiene herramientas para exponer la escena de Unity3D hacia el exterior. Realizado lo anterior se deberá desplegar una ventana en al cual se dará “yes”. Unity se reiniciará automáticamente, habilitará los backends del nuevo Input System.
 
-![Texto alternativo](imagenes/19.png)
+<img src="imagenes/19.png" alt="Diagrama" width="200">
 
 Después del reinicio, Unity te muestra errores y advertencias en la configuración del sistema para que Render Streaming funcione correctamente. Muchos de estos son detalles técnicos que pueden solucionarse automáticamente. Para ello Haz clic en Open Project Setting y marca la casilla **Automatic Streaming**, luego da clic en el botón “**Fix All**”
 
-![Texto alternativo](imagenes/20.png)
-![Texto alternativo](imagenes/21.png)
+<img src="imagenes/20.png" alt="Diagrama" width="500">
+<img src="imagenes/21.png" alt="Diagrama" width="500">
 
 Posteriormente, en el proyecto base, ve a la venta **SampleScene** y da clic sobre **Main Camera** y ve al inspector, ahí da clic en “**Add Component**” y busca el script Video **Stream Sender**, este permite transmitir la señal de video hacia un receptor que en este caso es el servidor **WebApp**. Al usar este componte habrá una sección llamada camera, arrastra el objeto Main Camera hacia esta sección.
 
-![Texto alternativo](imagenes/22.png)
+<img src="imagenes/22.png" alt="Diagrama" width="200">
 
 Ahora se abre terminal(cmd) e ingresa al director Streaming donde debe estar la carpeta UnityRenderStreaming-main que se obtuvo de descomprimir el archivo.zip. entra al directorio UnityRenderStreaming-main y luego al servidor Web App. Una vez se ingrese al directorio WebApp ejecuta uno por uno los comandos:
 
@@ -782,7 +782,7 @@ Ahora se abre terminal(cmd) e ingresa al director Streaming donde debe estar la 
 
 Lo anterior, instala, compila e inicializa el servidor WebApp.
 
-![Texto alternativo](imagenes/23.png)
+<img src="imagenes/23.png" alt="Diagrama" width="500">
 
 Al iniciar el servido WebApp, este recibe le señal de video transmitida desde unity3D, paso siguiente, compila el proyecto base este deberá mostrar en consola los siguientes mensajes:
 
@@ -792,7 +792,7 @@ Al iniciar el servido WebApp, este recibe le señal de video transmitida desde u
 
 Lo que signifiac que se conectó al servidor WebApp y transmite la señal en **<http://127.0.0.1:80>**. Al ingresa a ese link, da clic en **Receiver Sample** ahí observara la transmisión de la escena. Da clic en **play** luego ve a Unity3D y da clic en el boto de **pause**.
 
-![Texto alternativo](imagenes/24.png)
+<img src="imagenes/24.png" alt="Diagrama" width="500">
 
 Hasta este punto se está transmitiendo la señal de forma local, lo que significa que solo los dispositivos conectados a la misma red del pc donde esta Untiy3D puede mirar la transmisión.
 
@@ -810,7 +810,7 @@ ngrok config add-authtoken **TU_TOKEN_DE \_AUROTIZACION**
 
 Una vez realizado lo anterior en el termina cmd debe salir:
 
-![Texto alternativo](imagenes/25.png)
+<img src="imagenes/25.png" alt="Diagrama" width="500">
 
 <br/>Lo que significa que Ngrok ya quedó autenticado con tu cuenta correctamente.
 
@@ -820,7 +820,7 @@ ngrok http 80
 
 http 80 es debido a que el servidor WebApp está corriendo en el puerto 80, entonces ngrok lo que hace es exponer el puerto 80 en internet para que cualquiera pueda ver la escena de Unity3D. Ejecutado ese comando debe salir lo siguiente:
 
-![Texto alternativo](imagenes/26.png)
+<img src="imagenes/26.png" alt="Diagrama" width="500">
 
 **Forwarding** es la ruta para exponer la escena de Uniy3D al público.
 
