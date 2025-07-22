@@ -634,7 +634,7 @@ El propósito de esta clase, es almacenar y dar acceso a los ángulos de las 6 a
 
 En la ventana de **Assets** busca la carpeta **Scripts** dentro de esta crea un nuevo script, para eso presión clic derecho sobre la carpeta **Scritps** y selecciona **Create** y luego **C# Script**. A este nuevo script nómbralo como **UR3JointController**.
 
-<img src="imagenes/16.png" alt="Diagrama" width="200">
+<img src="imagenes/16.png" alt="Diagrama" width="400">
 
 Primero se crea un arreglo de 6 valores decimales (float) que representan los ángulos de las 6 articulaciones del robot:
 
@@ -700,7 +700,7 @@ Estas clases, controlan la rotación visual de las 6 articulaciones del brazo ro
 
 En la ventana de **Assets** busca la carpeta **Scripts** dentro de esta busca la carpeta **UR3** e ingresa, en esta encontraras otra carpeta llamada **Link** donde observaras 6 script **ur3_link1, …, ur3_link6**. Cada script está asignado al GameObject que representa cada articulación del brazo UR3 (por ejemplo, link1 en la jerarquía de Unity).
 
-<img src="imagenes/17.png" alt="Diagrama" width="200">
+<img src="imagenes/17.png" alt="Diagrama" width="400">
 
 Las modificaciones deben realizarse en cada uno de los scripts ur3_link. Para un ejemplo se realizará la modificación para el **script ur3_link1**
 
