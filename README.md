@@ -10,7 +10,7 @@
 
 Este proyecto busca integrar un robot UR3 simulado en Unity 3D con el Internet de las Cosas (IoT), permitiendo controlar el robot desde una interfaz web. Para ello, se utiliza una ESP32 como puente de comunicación entre Unity (vía TCP) y una página web, haciendo uso de un servidor WebSocket. De esta manera, los comandos enviados desde la interfaz web se transmiten en tiempo real hasta el robot simulado.
 
-1
+![Texto alternativo](imagenes/1.png)
 
 **1\. Requisitos Iniciales y Descarga del Proyecto Base**
 
