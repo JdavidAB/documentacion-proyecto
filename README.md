@@ -1,6 +1,6 @@
 **Redes de telecomunicaciones para IoT**
 
-**Control remoto de robots en Unity3D mediante ESP32 y WebSockets**
+# **Control remoto de robots en Unity3D mediante ESP32 y WebSockets**
 
 **Jonathan David Aguilar Betancourth**
 
@@ -29,7 +29,7 @@ Además, es necesario contar con las siguientes herramientas instaladas en el si
 
 Con estos elementos preparados, se puede abrir el proyecto “Unity3D_Robotics_UR-main” en Unity y comenzar con su configuración e integración con el resto de componentes del sistema.
 
-**2\. Construcción de Servidor WebSocket**
+# **2\. Construcción de Servidor WebSocket**
 
 Para la construcción del servidor WebSocket, instalar la aplicación **Node.js**, para eso ingresa a <https://nodejs.org/es>, luego da clic en **Get Node.js** y finalmente clic en **Windows Installer (.msi)**, se descargará el archivo _“node-v22.17.0-x64”_, dar doble clic en instala.
 
@@ -75,9 +75,7 @@ Después se verifica si ya se registró un ESP32 (esp32 no es null) y si está c
 
 &nbsp;       if (esp32 && esp32.readyState === WebSocket.OPEN) {
 
-&nbsp;           esp32.send(message.toString());
-
-}
+&nbsp;           esp32.send(message.toString()); }
 
 Finalmente, este bloque escucha el evento **'close'**, que ocurre cuando un cliente se desconecta del servidor WebSocket. Verifica si el cliente que se desconectó (ws) es el mismo que teníamos registrado como la ESP32. Si el cliente era la ESP32, se borra esa referencia, es decir, ya no se tiene la ESP32 conectada y se muestra en consola que la ESP32 se desconectó.
 
@@ -91,9 +89,7 @@ ws.on('close', function () {
 
 &nbsp;       }
 
-&nbsp;   });
-
-});
+&nbsp;   }); });
 
 console.log("Servidor WebSocket corriendo");
 
@@ -207,7 +203,7 @@ Luego se da clic en **Deploy Web Service** y espera el despliegue, Render va a: 
 
 Finalmente, el servidor WebSocket quedara desplegado públicamente en Render con la URL publica <https://serviidor-ws.onrender.com>, esta se usará para que la página web como la ESP32 puedan acceder a ese servidor como clientes y con ello establecer una comunicación bidireccional entre Página web – servidor Websocket – ESP32; al dar clic en la URL se debe abrir una página en el navegador que muestre el siguiente mensaje **“Upgrade Required”** lo cual quiere decir que el servidor fue desplegado correctamente.
 
-**3\. Interfaz Web: Acceso publico**
+# **3\. Interfaz Web: Acceso publico**
 
 En esta sección se explica el paso a paso para la creación de una Interfaz web que se comunica con el servidor Websocket y su posterior despliegue en Render para obtener un acceso público de esta.
 
@@ -224,28 +220,6 @@ Ahora, se construye las pagina web. Abrir Visual Studio Code y crear un nuevo ar
 &nbsp;     &lt;label&gt;Articulación 1:&lt;/label&gt;
 
 &nbsp;     &lt;input type="range" id="slider1" min="-180" max="180" value="0" oninput="sendJoint(1, this.value)"&gt;&lt;br&gt;
-
-&nbsp;     &lt;label&gt;Articulación 2:&lt;/label&gt;
-
-&nbsp;     &lt;input type="range" id="slider2" min="-180" max="180" value="0" oninput="sendJoint(2, this.value)"&gt;&lt;br&gt;
-
-&nbsp;     &lt;label&gt;Articulación 3:&lt;/label&gt;
-
-&nbsp;     &lt;input type="range" id="slider3" min="-180" max="180" value="0" oninput="sendJoint(3, this.value)"&gt;&lt;br&gt;
-
-&nbsp;     &lt;label&gt;Articulación 4:&lt;/label&gt;
-
-&nbsp;     &lt;input type="range" id="slider4" min="-180" max="180" value="0" oninput="sendJoint(4, this.value)"&gt;&lt;br&gt;
-
-&nbsp;     &lt;label&gt;Articulación 5:&lt;/label&gt;
-
-&nbsp;     &lt;input type="range" id="slider5" min="-180" max="180" value="0" oninput="sendJoint(5, this.value)"&gt;&lt;br&gt;
-
-&nbsp;     &lt;label&gt;Articulación 6:&lt;/label&gt;
-
-&nbsp;     &lt;input type="range" id="slider6" min="-180" max="180" value="0" oninput="sendJoint(6, this.value)"&gt;&lt;br&gt;
-
-&nbsp;     &lt;!-- Agrega mas sliders para J3 a J6 --&gt;
 
 &nbsp;     &lt;p id="status"&gt;Estado: Desconectado&lt;/p&gt;
 
@@ -269,17 +243,13 @@ socket.onopen = function() {
 
 &nbsp;     document.getElementById("status").innerText = "Estado: Conectado";
 
-&nbsp;     console.log("Conectado a WebSocket");
-
-&nbsp;   };
+&nbsp;     console.log("Conectado a WebSocket"); };
 
 El evento **onmessage**, imprime los mensajes que recibe desde el servidor, es decir, este evento se ejecuta cada vez que el servidor envía un mensaje al cliente. En este caso el evento esta sin uso ya que el servidor websocket no envía un mensaje hacia la página web. Sin embargo, al igual que el anterior evento de existir mensaje este se imprime en la consola.
 
 socket.onmessage = function(event) {
 
-&nbsp;     console.log("Mensaje recibido:", event.data);
-
-&nbsp;   };
+&nbsp;     console.log("Mensaje recibido:", event.data); };
 
 Finalmente, las siguientes líneas de código permiten enviar comandos hacia el servidor usando la función **sendJoint**. Crea un mensaje como J1:90 (por ejemplo, si quieres mover la articulación 1 a 90 grados). Antes de enviar información, verifica que la conexión esté abierta con socket.readyState === WebSocket.OPEN, de no tener una conexión abierta se imprime en la consola ("WebSocket no esta conectado")
 
@@ -295,13 +265,7 @@ Finalmente, las siguientes líneas de código permiten enviar comandos hacia el 
 
 &nbsp;     } else {
 
-&nbsp;       console.log("WebSocket no esta conectado");
-
-&nbsp;     }
-
-&nbsp;   }
-
-&nbsp; &lt;/script&gt;
+&nbsp;       console.log("WebSocket no esta conectado"); }
 
 Para observar en consola los mensajes de los eventos y la función que contienen esta página web, abra la interfaz o página web y en ella presione Ctrl + Shift + I. **Ver código Página web HTML en Sección código fuente.**
 
@@ -329,7 +293,7 @@ Luego se da clic en **Deploy Static Site** y espera el despliegue, Render va a: 
 
 Finalmente, la Página web quedara desplegada públicamente en Render con la URL publica <https://interface-ur3.onrender.com>, al dar clic en la URL se debe abrir una página en el navegador que muestre la interfaz web con los Sliders para controlar las articulaciones del robot UR3 lo cual quiere decir que el servidor fue desplegado correctamente.
 
-**4\. Configuración del Dispositivo ESP32**
+# **4\. Configuración del Dispositivo ESP32**
 
 Descarga Arduino IDE desde <https://www.arduino.cc/en/software/>, e instala.
 
@@ -345,7 +309,7 @@ Realizado lo anterior, ya se puede crear código en Arduino IDE, una vez se cree
 
 Importa la librería que permite usar WebSocket en la ESP32 como cliente. Sin esta librería, la ESP32 no sabría cómo conectarse ni comunicarse con un servidor WebSocket.
 
-# include &lt;WebSocketsClient.h&gt;
+include &lt;WebSocketsClient.h&gt;
 
 Luego, crea un objeto llamado **webSocket**, que representa la conexión con el servidor WebSocket. Este objeto se usa para:
 
@@ -420,9 +384,7 @@ void webSocketEvent( WStype_t type, uint8_t \* payload, size_t length)
 
 &nbsp;     break;
 
-&nbsp; }
-
-}
+&nbsp; } }
 
 Luego, se establece una conexión segura (WSS) con el servidor WebSocket desplegado en Render. "**servidor.onrender.com**", es la dirección del servidor WebSocket; **443**, es el puerto estándar para HTTPS/WSS y **"/"**, es la ruta del endpoint, por defecto es raíz.
 
@@ -430,9 +392,7 @@ Luego, se establece una conexión segura (WSS) con el servidor WebSocket despleg
 
 **webSocket.setReconnectInterval**, es usada para que cuando la ESP32 se desconecte del servidor, intente reconectarse cada 1000 ms (1 segundo).
 
-void setup()
-
-{
+void setup() {
 
 &nbsp;   // Conectarse al servidor WebSocket en Render (SSL/WSS)\*\*\*\*
 
@@ -442,25 +402,18 @@ void setup()
 
 &nbsp;   // Reintentar cada 1 segundos\*\*\*\*
 
-&nbsp;   webSocket.setReconnectInterval(1000);  
-
-}
+&nbsp;   webSocket.setReconnectInterval(1000);  }
 
 Finalmente, **loop()** es usado para mantener activa la conexión WebSocket y con ello permitir que se escuchen y procesen mensajes.
 
-void loop()
-
-{
-
-&nbsp;   webSocket.loop();
-
-}
+void loop(){
+&nbsp;   webSocket.loop(); }
 
 **4.2 Comunicación TCP** (**con servidor en Unity3D)**
 
 Inclusión de la librería **WiFiClient**, esta librería proporciona todo lo necesario para que la ESP32 se comporte como cliente TCP.
 
-# include &lt;WiFiClient.h&gt;
+include &lt;WiFiClient.h&gt;
 
 Luego se define el cliente TCP, se crea un objeto **client** que representa la conexión TCP con Unity. Este objeto se usa para:
 
@@ -524,9 +477,7 @@ void sendToUnity(String message)
 
 &nbsp;   }
 
-&nbsp; }
-
-}
+&nbsp; } }
 
 Finalmente, cuando llega un mensaje desde el servidor WebSocket (desde una página web -> servidor WebSocket), ese mensaje se convierte en texto y se imprime y luego se envía a Unity a través de TCP usando la función sendToUnity() que explicamos arriba.
 
@@ -552,7 +503,7 @@ Para observar en consola los mensajes de comunicación de la ESP32 con el servid
 
 Crea un archivo nuevo en Arduino IDE, copia el código y guarda ese archivo con el nombre de esp32websocketservidor y luego cargue el código en el dispositivo ESP32. Este archivo **_“esp32websocketservidor.ino_”** permitirá que la ESP32 se comunique con el servidor WebSocket y con el servidor TCP de Uniry3D.
 
-**5\. Configuración del entorno de Unity3D**
+# **5\. Configuración del entorno de Unity3D**
 
 Abre el Proyecto Base de Unity3D, en la ventana de Assets busca la carpeta **Scripts** dentro de esta crea un nuevo script, para eso presión clic derecho sobre la carpeta **Scritps** y selecciona **Create** y luego **C# Script**. A este nuevo script nómbralo como **TCPServer**.
 
@@ -796,7 +747,7 @@ transform.localEulerAngles = new Vector3(0.0f, (-1.0f) \* currentAngle, 0.0f);
 
 Este archivo **_“ur3_link1.cs_”** de unity3D, permite realizar el movimiento de la articulación 1 del robot UR3 en función de los valores que llagan desde la ESP32. **Ver código ur3_link1 en Sección código fuente.**
 
-**6\. Trasmisión de la Escena de Unity3D en la Página web**
+# **6\. Trasmisión de la Escena de Unity3D en la Página web**
 
 Se busca transmitir en tiempo real hacia la Página Web el movimiento del robot UR3 cuando desde la Pagina Web se muevan los Slider de alguna articulación, para eso de realizo los siguientes pasos.
 
@@ -895,7 +846,7 @@ Esto permite visualizar en la interfaz web la trasmisión del video. El link usa
 
 Esta URL publica en el código html debe ser modificada cada vez que se cierre y abra nuevamente el servidor WebApp y la herramienta ngrok.
 
-**Referencias.**
+# **Referencias.**
 
 \[1\] Arduino, "Arduino Libraries," Arduino Documentation, \[Online\]. Available: <https://docs.arduino.cc/libraries/>.
 
@@ -907,4 +858,3 @@ Esta URL publica en el código html debe ser modificada cada vez que se cierre y
 
 \[5\] Random Nerd Tutorials, "ESP32 WebSocket Server: Display Sensor Readings in Real Time," Random Nerd Tutorials, \[Online\]. Available: <https://randomnerdtutorials.com/esp32-websocket-server-sensor/>.
 
-**CODIGO FUENTE**
